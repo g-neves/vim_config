@@ -7,5 +7,6 @@ require("gneves.plugins.nvim-tree")
 require("gneves.plugins.lualine")
 require("gneves.plugins.telescope")
 require("gneves.plugins.nvim-cmp")
+require("gneves.plugins.lsp-config")
 
 
