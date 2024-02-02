@@ -32,4 +32,9 @@ lualine.setup({
   options = {
     theme = lualine_nightfly,
   },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {{'filename', file_status = true, path = 1}}
+  }
 })
