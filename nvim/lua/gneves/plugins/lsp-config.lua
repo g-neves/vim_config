@@ -1,4 +1,5 @@
 require("mason").setup()
+-- https://github.com/neovim/nvim-lspconfig
 require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
@@ -6,7 +7,8 @@ require("mason-lspconfig").setup({
     "jdtls",
     "docker_compose_language_service",
     "html",
-    "cssls"
+    "cssls",
+    "clangd"
 }
 
 })
@@ -42,6 +44,10 @@ require("lspconfig").html.setup {
 }
 
 require("lspconfig").cssls.setup {
+  on_attach = on_attach
+}
+
+require("lspconfig").clangd.setup {
   on_attach = on_attach
 }
 
