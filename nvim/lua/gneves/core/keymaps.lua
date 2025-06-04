@@ -12,9 +12,7 @@ keymap.set("i", "jk", "<ESC>")
 keymap.set("v", "jk", "<ESC>")
 keymap.set("i", "<ESC>", "<ESC>")
 keymap.set("v", "<ESC>", "<ESC>")
-
--- terminal keymaps
-keymap.set("t", "jk", "<C-\\><C-n>")
+-- terminal keymaps keymap.set("t", "jk", "<C-\\><C-n>")
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
 keymap.set("n", "<leader>tt", "<C-w>s:terminal<CR>a")
 
@@ -33,11 +31,13 @@ keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
 keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width & height
 keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 
+-- tabs management
 keymap.set("n", "<leader>to", ":tabnew<CR>") -- open new tab
 keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
+-- Autocomplete closing characters
 keymap.set("i", "(", "()<Left>")
 keymap.set("i", "{", "{}<Left>")
 keymap.set("i", "[", "[]<Left>")
@@ -70,3 +70,6 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
+-- Diagnostics
+keymap.set("n", "?", ":lua vim.diagnostic.open_float()<cr>") -- show diganostic for line
+keymap.set("n", "<leader>?", ":Telescope diagnostics<cr>") -- show all diganostics

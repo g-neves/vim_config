@@ -8,7 +8,8 @@ require("mason-lspconfig").setup({
     "docker_compose_language_service",
     "html",
     "cssls",
-    "clangd"
+    "clangd",
+    "ts_ls"
 }
 
 })
@@ -27,9 +28,9 @@ require("lspconfig").lua_ls.setup {
   on_attach = on_attach
 }
 
-require("lspconfig").pyright.setup {
-  on_attach = on_attach
-}
+-- require("lspconfig").pyright.setup {
+--   on_attach = on_attach
+-- }
 
 require("lspconfig").jdtls.setup {
   on_attach = on_attach
