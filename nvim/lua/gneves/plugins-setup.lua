@@ -11,8 +11,7 @@ local ensure_packer = function()
 end
 local packer_bootstrap = ensure_packer() -- true if packer was just installed
 
--- autocommand that reloads neovim and installs/updates/removes plugins
--- when file is saved
+-- autocommand that reloads neovim and installs/updates/removes plugins when file is saved
 vim.cmd([[ 
   augroup packer_user_config
     autocmd!
@@ -33,8 +32,11 @@ return packer.startup(function(use)
 
   use("nvim-lua/plenary.nvim") -- lua functions that many plugins use
 
+  -- colorschemes
   use("bluz71/vim-nightfly-guicolors") -- preferred colorscheme
-  use("sainnhe/everforest") -- preferred colorscheme
+  use("sainnhe/everforest") 
+  use("ellisonleao/gruvbox.nvim")
+  use("Mofiqul/vscode.nvim")
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
@@ -107,6 +109,15 @@ return packer.startup(function(use)
 
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
+
+  -- copilot
+use("CopilotC-Nvim/CopilotChat.nvim")
+
+-- markdown rendering
+use("MeanderingProgrammer/render-markdown.nvim")
+
+-- sticky function context at the top
+use("nvim-treesitter/nvim-treesitter-context")
 
   if packer_bootstrap then
     require("packer").sync()

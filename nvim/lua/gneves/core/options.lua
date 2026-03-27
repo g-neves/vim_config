@@ -41,6 +41,8 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 opt.iskeyword:append("-") -- consider string-string as whole word
 
+opt.mouse = "a"
+
 -- Set modifiable in terminal mode
 vim.cmd[[
     augroup TerminalModifiable

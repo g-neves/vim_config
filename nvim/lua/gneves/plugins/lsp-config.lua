@@ -1,5 +1,4 @@
 require("mason").setup()
--- https://github.com/neovim/nvim-lspconfig
 require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
@@ -10,45 +9,42 @@ require("mason-lspconfig").setup({
     "cssls",
     "clangd",
     "ts_ls"
-}
-
+  }
 })
 
-local on_attach = function (_, _)
+local on_attach = function(_, _)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, {})
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
-
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
 end
 
-require("lspconfig").lua_ls.setup {
-  on_attach = on_attach
+-- Configuração dos LSP servers usando a nova API
+local servers = {
+  "lua_ls",
+  "jdtls",
+  "docker_compose_language_service",
+  "html",
+  "cssls",
+  "clangd",
+  "ts_ls",
+  "pyright"
 }
 
--- require("lspconfig").pyright.setup {
---   on_attach = on_attach
--- }
+for _, server in ipairs(servers) do
+  vim.lsp.config[server] = {
+    on_attach = on_attach,
+  }
+  vim.lsp.enable(server)
+end
 
-require("lspconfig").jdtls.setup {
-  on_attach = on_attach
+vim.lsp.config["pyright"] = {
+  on_attach = on_attach,
+  before_init = function(_, config)
+    config.settings = config.settings or {}
+    config.settings.python = config.settings.python or {}
+  end,
 }
-
-require("lspconfig").docker_compose_language_service.setup {
-  on_attach = on_attach
-}
-
-require("lspconfig").html.setup {
-  on_attach = on_attach
-}
-
-require("lspconfig").cssls.setup {
-  on_attach = on_attach
-}
-
-require("lspconfig").clangd.setup {
-  on_attach = on_attach
-}
-
+vim.lsp.enable("pyright")
