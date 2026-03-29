@@ -37,6 +37,8 @@ return packer.startup(function(use)
   use("sainnhe/everforest") 
   use("ellisonleao/gruvbox.nvim")
   use("Mofiqul/vscode.nvim")
+  use("rose-pine/neovim")
+  use("sainnhe/sonokai")
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 

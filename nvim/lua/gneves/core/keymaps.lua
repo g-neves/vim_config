@@ -70,6 +70,10 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 -- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
+-- buffers
+vim.keymap.set('n', '<Tab>',   ':bn<CR>', {})
+vim.keymap.set('n', '<S-Tab>', ':bp<CR>', {})
+
 -- Diagnostics
 keymap.set("n", "?", ":lua vim.diagnostic.open_float()<cr>") -- show diganostic for line
 keymap.set("n", "<leader>?", ":Telescope diagnostics<cr>") -- show all diganostics

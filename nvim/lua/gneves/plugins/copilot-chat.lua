@@ -4,7 +4,7 @@ if not ok then
 end
 
 copilot_chat.setup({
-  model = "gpt-4.1",         -- or "claude-sonnet-4-5", etc.
+  model = "claude-sonnet-4",         -- or "claude-sonnet-4-5", etc.
   window = {
     layout = "vertical",
     width = 0.4,
@@ -23,3 +23,4 @@ keymap("n", "<leader>cc", "<cmd>CopilotChatToggle<cr>", { desc = "Toggle Copilot
 keymap("v", "<leader>ce", "<cmd>CopilotChatExplain<cr>", { desc = "Explain selection" })
 keymap("v", "<leader>cf", "<cmd>CopilotChatFix<cr>", { desc = "Fix selection" })
 keymap("v", "<leader>cr", "<cmd>CopilotChatReview<cr>", { desc = "Review selection" })
+keymap("v", "<leader>ci", "<cmd>CopilotChat<cr>", { desc = "Chat about selection" })

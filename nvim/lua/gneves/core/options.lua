@@ -43,6 +43,10 @@ opt.iskeyword:append("-") -- consider string-string as whole word
 
 opt.mouse = "a"
 
+opt.scrolloff = 8
+opt.incsearch = true
+opt.hlsearch = false
+
 -- Set modifiable in terminal mode
 vim.cmd[[
     augroup TerminalModifiable
